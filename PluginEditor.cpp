@@ -23,7 +23,11 @@ void AudioPluginAudioProcessorEditor::paint (juce::Graphics& g)
 
     g.setColour (juce::Colours::white);
     g.setFont (15.0f);
-    g.drawFittedText ("Hello World!", getLocalBounds(), juce::Justification::centred, 1);
+    const int64 currMillis = Time::currentTimeMillis();
+    const int64 getMillisecondCounter = Time::getMillisecondCounter();
+    g.drawFittedText ("currentTimeMillis = " + String(currMillis) + '\n' + "getMillisecondCounter = " + String(getMillisecondCounter), getLocalBounds(), juce::Justification::centred, 1);
+
+    repaint();
 }
 
 void AudioPluginAudioProcessorEditor::resized()
